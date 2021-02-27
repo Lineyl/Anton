@@ -1,0 +1,60 @@
+#include <iostream>                                                                            
+#include <string>                                                                              
+#include <vector>                                                                              
+#include <algorithm>                                                                           
+#include <Windows.h>                                                                           
+#include <sstream>                                                                             
+#include <iterator>                                                                            
+                                                                                               
+                                                                                               
+                                                                                               
+int main() {                                                                                    
+        SetConsoleCP(1251);                                                                        
+        SetConsoleOutputCP(1251);                                                                  
+                                                                                                   
+                                                                                                   
+        std::vector<std::string> words;                                                            
+                                                                                                   
+                                                                                                   
+
+                                                                                                   
+                                                                                                   
+        std::string text;                                                                          
+        std::cout << "Введите текст:\n";                                                           
+        std::getline(std::cin, text);                                                              
+                                                                                                
+                                                                                                   
+    
+                                                                                                   
+                                                                                                   
+        std::istringstream inp(text);                                                              
+                                                                                                   
+        std::copy(std::istream_iterator<std::string>(inp),                                        
+            std::istream_iterator<std::string>(),                                                  
+            std::back_inserter(words));                                                            
+                                                                                                   
+                                                                                                   
+                                                                                                   
+       
+                                                                                                   
+        std::string oldWord, newWord;                                                              
+                                                                                                   
+        std::cout << "Введте слово, которое вы хотите заменить: ";                                   
+        std::cin >> oldWord;                                                                       
+        std::cout << "Введите слово, нак оторое заменится старое: ";                               
+        std::cin >> newWord;                                                                       
+                                                                                                   
+        std::replace(begin(words), end(words), oldWord, newWord);                                  
+                                                                                                   
+                                                                                                   
+                                                                                                   
+    
+                                                                                                  
+                                                                                                   
+        std::cout << "\n\n";                                                                       
+        for (int i = 0; i < words.size(); i++)                                                     
+            std::cout << words[i] << " ";                                                          
+                                                                                                  
+        std::cin.get();                                                                            
+    }                                                                                              
+    
